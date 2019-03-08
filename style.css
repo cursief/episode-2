@@ -2,3 +2,40 @@ body,
 html {
   margin: 0;
   padding: 0; }
+
+.banner {
+  display: flex;
+  width: 100vw;
+  height: calc(100vh - 8rem); }
+
+.banner__left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  color: #ffd1ae;
+  background-color: #191a1f; }
+  .banner__left h1 {
+    font-family: Arial;
+    font-size: 70px; }
+    .banner__left h1 small {
+      font-size: 30px; }
+
+.cart {
+  margin-left: auto; }
+
+.banner__right {
+  width: 50%;
+  background-color: #ff9968; }
+
+.banner__header {
+  padding: 50px; }
+
+.banner__content {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center; }
+
+.logo {
+  color: #ffd1ae;
+  text-decoration: none; }

@@ -11,7 +11,7 @@ html {
 main {
   display: block;
   width: 100%;
-  max-width: 30rem;
+  max-width: calc(100vw - 10rem);
   margin: auto;
   border-radius: 3rem;
   border: 4px solid black;

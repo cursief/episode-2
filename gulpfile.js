@@ -9,42 +9,42 @@ const config = require('./gulp-config.json');
 
 // HTML
 function htmlTask() {
-  return gulp.src(`${config.source}/*.html`, { base: config.source })
-  .pipe(gulp.dest(config.destination));
+	return gulp.src(`${config.source}/*.html`, { base: config.source })
+	.pipe(gulp.dest(config.destination));
 }
 
 // SCSS
 function scssTask() {
-  return gulp.src(`${config.source}/style.scss`, { base: `${config.source}` })
-  .pipe(scss())
-  .on('error', notify.onError('SCSS compile error: <%= error.message %>'))
-  .pipe(autoprefixer({ browsers: 'last 2 versions' }))
-  .pipe(gulp.dest(config.destination))
-  .pipe(browserSync.stream());
+	return gulp.src(`${config.source}/style.scss`, { base: `${config.source}` })
+	.pipe(scss())
+	.on('error', notify.onError('SCSS compile error: <%= error.message %>'))
+	.pipe(autoprefixer({ browsers: 'last 2 versions' }))
+	.pipe(gulp.dest(config.destination))
+	.pipe(browserSync.stream());
 }
 
 // Serve
 function serve(done) {
-  browserSync.init({
-    server: {
-      baseDir: config.destination
-    }
-  });
+	browserSync.init({
+		server: {
+			baseDir: config.destination
+		}
+	});
 
-  done();
+	done();
 }
 
 // BrowserSync reload
 function reloadTask(done) {
-  browserSync.reload();
+	browserSync.reload();
 
-  done();
+	done();
 }
 
 // Watch
 function watchTask() {
-  gulp.watch(`${config.source}/*.html`, gulp.series(htmlTask, reloadTask));
-  gulp.watch(`${config.source}/*.scss`, scssTask);
+	gulp.watch(`${config.source}/*.html`, gulp.series(htmlTask, reloadTask));
+	gulp.watch(`${config.source}/*.scss`, scssTask);
 }
 
 // Default task
